@@ -14,7 +14,7 @@
   "main": "vcard-project-detail.html",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vcard/vcard-project-detail.git"
+    "url": "https://github.com/ylinlee/vcard-project-detail.git"
   },
   "license": "MIT",
   "ignore": [],
