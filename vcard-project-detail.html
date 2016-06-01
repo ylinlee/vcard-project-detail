@@ -160,12 +160,17 @@ Polymer({
             Polymer.dom(this.$.projectDetailSlider).appendChild(item);
         }
 
+        var self = this;
+
         this.carousel = $(this.$.projectDetailSlider).owlCarousel({
             slideSpeed: 400,
             paginationSpeed: 400,
             rewindSpeed: 800,
             singleItem: !0,
-            itemsScaleUp: true
+            itemsScaleUp: true,
+            afterUpdate: function() {
+                self._recalculate.call(self);
+            }
         }).data('owlCarousel');
         $('.owl-controls', $(this.$.projectDetailSlider)).addClass('vcard-project-detail');
     },
@@ -198,6 +203,9 @@ Polymer({
             '<a href="' + item.githubUrl + '" target="_blank"><i class="fa fa-github"></i></a>' +
             '</div>' +
             '</div>';
+    },
+    _recalculate: function() {
+        this.fire('recalculateHeight', {});
     }
 });
 </script>
